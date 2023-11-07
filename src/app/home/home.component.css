@@ -1,0 +1,53 @@
+.fruit img{
+  width:100px;
+}
+  .produit{
+  
+    border:2px solid #18C9D2;
+    text-align: center;
+    margin-bottom: 2px;
+  }
+  h2{
+    text-align: center;
+    color:#18C9D2;
+    font-weight: bold;
+  
+  }
+  .panier{
+    border:2px solid #18C9D2;
+    width:80vh;
+    height: 25vh auto;
+  
+  }
+  th{
+    width:300px;
+    height: 30px;
+    line-height: 30px;
+  }
+  span{
+    cursor: pointer;
+  }
+  .commande{
+    border:2px solid #18C9D2;
+    width:80vh;
+
+  }
+
+  .commande-un{
+ 
+    width:80vh;
+    height:10vh;
+  }
+ 
+  .prix{
+    color:green;
+    font-weight: bold;
+  }
+  .x,.rouge{
+    color:red;
+    font-weight: 800;
+    margin-left:10px;
+  }
+  tr{
+    width:600px;
+  }

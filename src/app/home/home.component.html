@@ -1,0 +1,86 @@
+<div class="container-fluid mt-5">
+    <div class="row">
+        <div class="col-md-12 col-sm-12  col-lg-7 ">
+            <div class="row">
+                <div class="col-sm-12 col-md-12 col-lg-3" *ngFor="let produit of produits let i=index">
+                    <div class="card fruit">
+                        <img src="{{produit.image}}"
+                            class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <p class="card-text">{{produit.nom}}</p>
+                            <span>{{produit.prixHT }} €</span>
+                            <br>
+                            <span>{{produit.quantite }} </span>
+                            <br>
+                            <a (click)="deleteQuantity(i)" class="btn btn-danger m-1">-</a>
+                            <a (click)="addQuantity(i)" class="btn btn-success">+</a>
+                        </div>
+                        <a class="btn btn-primary" (click)="ajouterPanier(i)">ajouter</a>
+                        
+                    </div>
+                </div>
+               
+            </div>
+        </div>
+        <div class="col-sm-12 col-md-12 col-lg-4">
+            <h2 class="titre">Panier</h2>
+            <div class="col-sm-12 col-md-12 col-lg-10  ">
+            <table >
+                <thead class="commande">
+                    <tr>
+                        <th >N°</th>
+                        <th>Nom</th>
+                        <th>Quantité</th>
+                        <th>Prix</th>
+                        <th><span class="glyphicon glyphicon-trash"></span></th>
+                    </tr>
+
+                </thead>
+                <tbody *ngFor="let commande of commandes let i=index " >
+                    <tr >
+                        <td>{{i+1}}</td>
+                        <td>{{commande.nom}}</td>
+                        <td>{{commande.quantite}}</td>
+                        <td>{{Total(i) | number : '1.2-2'}}€</td>
+                        <td><span class="glyphicon glyphicon-remove x ml-5"><a (click)="deletePoduit(i)">X</a></span></td>
+                    </tr>
+                    <tr>
+
+                    </tr>
+                </tbody>
+
+            </table>
+            <div class="col-sm-12 col-md-12 col-lg-4 bloc">
+                <div class="col-sm-12 col-md-12 col-lg-10  commande-un">
+
+                    <table class="p-5">
+                        <thead class="commande">
+                            <tr>
+                                <th>Qté</th>
+                                <th>PrixHT</th>
+                                <th>Prix TTC</th>
+
+                                <th></th>
+                            </tr>
+
+                        </thead >
+                        <br>
+                        <tbody  >
+                            <tr >
+                                <td class="prix">{{calculerQte()}} </td>
+                                <td class="prix">{{calculerTotal()| number : '1.2-2'}}€</td>
+                                <td class="prix">{{calculerTotal()+calculerTotal()*0.2 | number : '1.2-2'}}</td>
+                                <td></td>
+                                <td><span class="glyphicon glyphicon-remove x ml-5"><a (click)="  supprimePanier()">X</a></span></td>
+                            </tr>
+                            <tr>
+
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
