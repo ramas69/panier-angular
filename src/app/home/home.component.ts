@@ -12,7 +12,7 @@ export class HomeComponent implements OnInit {
   commandes:IProduit[]=[];
   resultat :number = 0;
 
-  constructor(private produitS:ProduitService){}
+  constructor(private service:ProduitService){}
 
   ngOnInit(): void {
       this.getProduit();
@@ -21,14 +21,14 @@ export class HomeComponent implements OnInit {
 
 // recuperer les produits
   getProduit(){
-    this.produits= this.produitS.fetchAll()
+    this.produits= this.service.fetchAll()
     return this.produits
   }
 
   //ajout article dans le panier avec la quantité
   ajouterPanier(index: number) {
-   this.produitS.addPanier(index);
-    this.commandes = this.produitS.commande
+   this.service.addPanier(index);
+    this.commandes = this.service.commande
     console.log(this.commandes);
     
   }
@@ -52,8 +52,8 @@ export class HomeComponent implements OnInit {
 
 
   deletePoduit(index:number){
-    this.produitS.deletePanier(index);
-    this.commandes = this.produitS.commande
+    this.service.deletePanier(index);
+    this.commandes = this.service.commande
   }
 
 
